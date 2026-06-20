@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>アクティフス在宅ケア株式会社</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ─── Design 3 : ナチュラルフォレスト系 ─── */
+:root{
+  --t:#3D6B61; --td:#2A4E46; --tm:#4D8075; --tl:#7FB3A8; --tp:#EDF5F3; --tbg:#F2F8F6;
+  --g:#C8963C; --gl:#E8C078; --gp:#FBF5E8;
+  --dk:#1E3330; --mid:#4A6B65; --tx:#2C4540;
+  --bg:#F6FAF9; --bdr:#C8E0DB; --sh:rgba(30,51,48,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--tx);line-height:1.8;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;object-fit:cover;}
+
+/* ── NAV ── */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:var(--td);
+  height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;
+}
+.logo-wrap{display:flex;align-items:center;gap:14px;}
+.logo-mark{background:var(--g);color:var(--dk);width:36px;height:36px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Noto Serif JP',serif;font-size:.78rem;font-weight:600;}
+.logo-name{font-family:'Noto Serif JP',serif;font-size:.9rem;color:rgba(255,255,255,.94);font-weight:400;line-height:1.3;}
+.logo-name span{display:block;font-size:.58rem;color:rgba(255,255,255,.45);font-family:'Noto Sans JP',sans-serif;font-weight:300;margin-top:2px;}
+nav{display:flex;gap:28px;align-items:center;}
+nav>a{font-size:.78rem;color:rgba(255,255,255,.68);letter-spacing:.07em;transition:color .2s;}
+nav>a:hover{color:#fff;}
+.nav-btn{background:var(--g);color:var(--dk);padding:8px 22px;border-radius:6px;font-size:.78rem;font-weight:500;letter-spacing:.06em;transition:all .2s;}
+.nav-btn:hover{background:var(--gl);}
+
+/* ── HERO ── */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;}
+.hero-img{
+  position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-1543333995-a78aea2eee50?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+}
+.hero-img::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(26,60,50,.88) 0%,rgba(26,60,50,.5) 55%,rgba(26,60,50,.12) 100%);
+}
+.hero-accent{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--g),transparent);z-index:3;}
+.hero-content{
+  position:relative;z-index:2;
+  max-width:1060px;margin:0 auto;padding:0 64px 80px;width:100%;
+  display:grid;grid-template-columns:1fr 340px;gap:60px;align-items:flex-end;
+}
+.hero-main{}
+.hero-pre{
+  display:inline-flex;align-items:center;gap:10px;
+  color:var(--gl);font-size:.76rem;letter-spacing:.14em;margin-bottom:22px;
+}
+.hero-pre::before{content:'';width:20px;height:1px;background:var(--g);}
+.hero h1{
+  font-family:'Noto Serif JP',serif;
+  font-size:clamp(1.9rem,4.2vw,3.2rem);
+  font-weight:300;color:#fff;line-height:1.55;
+  letter-spacing:.04em;margin-bottom:20px;
+}
+.hero h1 em{font-style:normal;font-weight:600;color:var(--gl);display:block;}
+.hero-body{font-size:.9rem;color:rgba(255,255,255,.65);line-height:2.1;margin-bottom:36px;max-width:500px;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-gold{background:var(--g);color:var(--dk);padding:13px 30px;border-radius:6px;font-size:.88rem;font-weight:500;letter-spacing:.08em;transition:all .2s;box-shadow:0 4px 16px rgba(200,150,60,.3);}
+.btn-gold:hover{background:var(--gl);transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,150,60,.4);}
+.btn-outline-w{border:1.5px solid rgba(255,255,255,.4);color:rgba(255,255,255,.85);padding:12px 30px;border-radius:6px;font-size:.88rem;letter-spacing:.08em;transition:all .2s;}
+.btn-outline-w:hover{border-color:rgba(255,255,255,.7);color:#fff;background:rgba(255,255,255,.08);}
+.hero-side-card{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+  border-radius:14px;padding:28px;backdrop-filter:blur(6px);
+  border-bottom:3px solid var(--g);
+}
+.hsc-label{font-size:.68rem;letter-spacing:.18em;color:var(--gl);margin-bottom:12px;}
+.hsc-main{font-family:'Noto Serif JP',serif;font-size:1.15rem;color:rgba(255,255,255,.9);font-weight:300;line-height:1.7;margin-bottom:16px;}
+.hsc-main strong{color:var(--gl);font-weight:600;}
+.hsc-list{display:flex;flex-direction:column;gap:7px;}
+.hsc-item{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.06);border-radius:6px;padding:9px 12px;font-size:.8rem;color:rgba(255,255,255,.78);border-left:2px solid var(--g);}
+
+/* ── common ── */
+section{padding:96px 24px;}
+.container{max-width:1060px;margin:0 auto;}
+.s-label{display:flex;align-items:center;gap:10px;font-size:.68rem;letter-spacing:.22em;color:var(--t);text-transform:uppercase;margin-bottom:10px;font-weight:500;}
+.s-label::before{content:'';width:18px;height:1px;background:var(--g);}
+.s-title{font-family:'Noto Serif JP',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:300;color:var(--dk);line-height:1.55;margin-bottom:18px;letter-spacing:.04em;}
+.s-lead{font-size:.93rem;color:var(--mid);line-height:2.1;max-width:620px;}
+.gold-bar{width:36px;height:2px;background:var(--g);border-radius:1px;margin:16px 0 32px;}
+
+/* ── ABOUT ── */
+.about-bg{background:var(--tbg);}
+.about-grid{display:grid;grid-template-columns:1fr 400px;gap:60px;align-items:start;margin-top:52px;}
+.rinen-block{background:#fff;border-radius:14px;padding:32px;box-shadow:0 2px 18px var(--sh);margin-bottom:20px;border-top:3px solid var(--t);}
+.rinen-kana{font-size:.68rem;color:var(--mid);letter-spacing:.14em;margin-bottom:8px;}
+.rinen-main{font-family:'Noto Serif JP',serif;font-size:1.85rem;color:var(--t);font-weight:600;line-height:1.4;margin-bottom:12px;}
+.rinen-body{font-size:.85rem;color:var(--mid);line-height:2.1;}
+.values-list{display:flex;flex-direction:column;gap:0;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 18px var(--sh);margin-bottom:20px;}
+.vl-item{display:flex;align-items:center;gap:14px;padding:14px 20px;border-bottom:1px solid var(--tp);}
+.vl-item:last-child{border-bottom:none;}
+.vl-tag{background:var(--t);color:#fff;padding:3px 10px;border-radius:4px;font-size:.7rem;font-weight:500;flex-shrink:0;min-width:46px;text-align:center;}
+.vl-item p{font-size:.81rem;color:var(--mid);}
+.ceo-msg-card{background:linear-gradient(135deg,var(--tp),var(--gp));border-radius:14px;padding:28px;border-left:3px solid var(--g);}
+.ceo-msg-text{font-size:.87rem;color:var(--tx);line-height:2.2;margin-bottom:16px;}
+.ceo-sig{border-top:1px dashed var(--bdr);padding-top:12px;}
+.ceo-sig .title{font-size:.7rem;color:var(--mid);}
+.ceo-sig .name{font-family:'Noto Serif JP',serif;font-size:.92rem;color:var(--dk);font-weight:600;}
+
+.ceo-col{}
+.ceo-photo-box{border-radius:18px;overflow:hidden;box-shadow:0 8px 36px var(--sh);height:440px;position:relative;margin-bottom:18px;}
+.ceo-photo-box img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.ceo-photo-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(26,60,50,.85),transparent);padding:24px 20px 18px;color:#fff;}
+.cpo-title{font-size:.68rem;opacity:.78;margin-bottom:3px;}
+.cpo-name{font-family:'Noto Serif JP',serif;font-size:1rem;font-weight:600;}
+.co-table{width:100%;border-collapse:collapse;font-size:.82rem;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 14px var(--sh);}
+.co-table tr{border-bottom:1px solid var(--bdr);}
+.co-table th{width:115px;padding:11px 14px;background:var(--tp);color:var(--td);text-align:left;font-weight:500;}
+.co-table td{padding:11px 14px;}
+
+/* ── QUOTE BANNER ── */
+.quote-banner{position:relative;min-height:310px;display:flex;align-items:center;overflow:hidden;}
+.qb-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1559234938-b60fff04894d?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;}
+.qb-bg::after{content:'';position:absolute;inset:0;background:rgba(26,60,50,.72);}
+.qb-inner{position:relative;z-index:2;max-width:1060px;margin:0 auto;padding:0 64px;width:100%;}
+.qb-rule{width:32px;height:2px;background:var(--g);margin-bottom:20px;}
+.qb-main{font-family:'Noto Serif JP',serif;font-size:clamp(2rem,4vw,3rem);color:#fff;font-weight:300;letter-spacing:.1em;margin-bottom:12px;}
+.qb-sub{font-size:.9rem;color:rgba(255,255,255,.65);letter-spacing:.04em;}
+
+/* ── SERVICES ── */
+.svc-bg{background:#fff;}
+.svc-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;}
+.svc-card{border-radius:16px;overflow:hidden;box-shadow:0 4px 20px var(--sh);transition:transform .22s,box-shadow .22s;}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px var(--sh);}
+.svc-photo{height:220px;overflow:hidden;position:relative;}
+.svc-photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.svc-card:hover .svc-photo img{transform:scale(1.06);}
+.svc-num{position:absolute;top:14px;right:16px;font-size:2.5rem;font-weight:600;color:rgba(255,255,255,.2);font-family:'Noto Serif JP',serif;line-height:1;}
+.svc-body{background:#fff;padding:22px;}
+.svc-body h3{font-family:'Noto Serif JP',serif;font-size:1rem;color:var(--dk);margin-bottom:8px;}
+.svc-body p{font-size:.82rem;color:var(--mid);line-height:1.9;}
+.svc-chip{display:inline-block;background:var(--tp);color:var(--t);padding:3px 12px;border-radius:4px;font-size:.7rem;margin-top:10px;font-weight:500;}
+
+/* ── GALLERY ── */
+.gal-bg{background:var(--tbg);}
+.gal-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:270px 270px;gap:14px;margin-top:44px;}
+.gi{border-radius:14px;overflow:hidden;box-shadow:0 2px 14px var(--sh);}
+.gi img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.gi:hover img{transform:scale(1.04);}
+.gi:first-child{grid-row:1/3;border-radius:18px;}
+.price-box{background:#fff;border-radius:16px;padding:36px;box-shadow:0 2px 16px var(--sh);margin-top:44px;}
+.price-box h3{font-family:'Noto Serif JP',serif;font-size:1.05rem;color:var(--dk);margin-bottom:6px;font-weight:400;}
+.price-box .p-sub{font-size:.76rem;color:var(--mid);margin-bottom:20px;}
+.p-items{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px;}
+.pi{background:var(--tp);border-radius:8px;padding:14px;text-align:center;}
+.pi .pil{font-size:.7rem;color:var(--mid);margin-bottom:5px;}
+.pi .piv{font-size:1rem;font-weight:600;color:var(--dk);}
+.p-total{background:var(--td);border-radius:8px;padding:14px 22px;display:flex;justify-content:space-between;align-items:center;color:#fff;}
+.p-total .tl{font-size:.83rem;opacity:.8;}
+.p-total .tv{font-size:1.3rem;font-weight:600;color:var(--gl);}
+.p-note{font-size:.73rem;color:var(--mid);margin-top:12px;line-height:1.8;}
+
+/* ── STAFF ── */
+.staff-bg{background:var(--tp);}
+.vc-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px;}
+.vc{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 14px var(--sh);display:flex;}
+.vc-photo{width:148px;flex-shrink:0;}
+.vc-photo img{width:148px;height:100%;min-height:210px;object-fit:cover;object-position:top;}
+.vc-body{padding:26px 20px;}
+.vc-role{display:inline-flex;align-items:center;gap:6px;background:var(--tp);color:var(--t);padding:4px 12px;border-radius:4px;font-size:.72rem;font-weight:500;margin-bottom:12px;}
+.vc-body p{font-size:.86rem;color:var(--tx);line-height:2.1;}
+.common-box{background:var(--td);border-radius:16px;padding:36px 40px;margin-top:24px;text-align:center;box-shadow:0 4px 20px rgba(26,60,50,.2);}
+.common-box p{font-size:.93rem;color:rgba(255,255,255,.82);line-height:2.3;}
+.common-box strong{color:var(--gl);}
+
+/* ── RECRUIT ── */
+.rec-bg{background:var(--bg);}
+.rec-banner{position:relative;height:290px;overflow:hidden;border-radius:20px;margin-bottom:48px;}
+.rec-bg-img{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1658314755707-1fbdf7c40145?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;}
+.rec-bg-img::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,60,50,.85),rgba(61,107,97,.65));}
+.rec-banner-inner{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 52px;}
+.rec-banner-inner h2{font-family:'Noto Serif JP',serif;font-size:clamp(1.7rem,3.2vw,2.4rem);color:#fff;font-weight:300;letter-spacing:.06em;margin-bottom:10px;}
+.rec-banner-inner p{font-size:.9rem;color:rgba(255,255,255,.7);}
+.rec-layout{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start;}
+.jstack{display:flex;flex-direction:column;gap:13px;}
+.jcard{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 13px var(--sh);}
+.jcard-h{padding:18px 22px;color:#fff;}
+.jcard-h.t1{background:linear-gradient(135deg,var(--td),var(--t));}
+.jcard-h.t2{background:linear-gradient(135deg,var(--g),var(--gl));color:var(--dk);}
+.jcard-h.t3{background:linear-gradient(135deg,#4A6B65,#7A9B95);}
+.jcard-h h3{font-size:.9rem;margin-bottom:4px;}
+.jcard-h .pay{font-size:1.2rem;font-weight:600;margin-top:5px;}
+.jcard-b{padding:14px 22px;font-size:.8rem;color:var(--mid);line-height:1.8;}
+.w-card{background:#fff;border-radius:12px;padding:18px 22px;box-shadow:0 2px 13px var(--sh);margin-top:12px;}
+.w-card h4{font-size:.7rem;color:var(--mid);letter-spacing:.12em;margin-bottom:9px;}
+.w-tags{display:flex;flex-wrap:wrap;gap:7px;}
+.w-tag{background:var(--tp);color:var(--td);padding:4px 12px;border-radius:4px;font-size:.74rem;font-weight:500;}
+.merit-panel{background:#fff;border-radius:14px;padding:30px;box-shadow:0 2px 16px var(--sh);}
+.merit-panel h3{font-family:'Noto Serif JP',serif;font-size:1rem;font-weight:400;margin-bottom:18px;color:var(--dk);padding-bottom:10px;border-bottom:1px solid var(--bdr);}
+.merit-item{display:flex;gap:13px;padding:13px 0;border-bottom:1px solid var(--tp);align-items:flex-start;}
+.merit-item:last-of-type{border-bottom:none;}
+.merit-num{background:var(--td);color:var(--gl);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:600;flex-shrink:0;}
+.merit-item h4{font-size:.87rem;color:var(--dk);margin-bottom:3px;font-weight:600;}
+.merit-item p{font-size:.78rem;color:var(--mid);line-height:1.7;}
+.persona-box{background:var(--td);border-radius:12px;padding:22px;margin-top:14px;color:rgba(255,255,255,.82);}
+.persona-box h4{font-size:.68rem;letter-spacing:.14em;color:var(--gl);margin-bottom:10px;}
+.p-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px;}
+.p-tag{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:4px;padding:4px 12px;font-size:.77rem;color:rgba(255,255,255,.85);}
+.persona-msg{font-size:.83rem;line-height:1.9;margin-bottom:14px;}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap;}
+
+/* ── CONTACT ── */
+.contact-bg{background:var(--tbg);}
+.contact-grid{display:grid;grid-template-columns:280px 1fr;gap:36px;margin-top:48px;}
+.ci-card{background:#fff;border-radius:14px;padding:26px;box-shadow:0 2px 14px var(--sh);height:fit-content;border-top:3px solid var(--g);}
+.ci-card h3{font-family:'Noto Serif JP',serif;font-size:.9rem;font-weight:400;margin-bottom:12px;color:var(--dk);}
+.ci-tel{font-size:1.6rem;font-weight:600;color:var(--td);letter-spacing:.04em;margin:8px 0 4px;}
+.ci-note{font-size:.74rem;color:var(--mid);line-height:1.7;}
+.ci-sep{border:none;border-top:1px dashed var(--bdr);margin:15px 0;}
+.ci-msg{font-size:.77rem;color:var(--mid);line-height:1.9;}
+.form-card{background:#fff;border-radius:14px;padding:34px;box-shadow:0 2px 14px var(--sh);}
+.fr{margin-bottom:18px;}
+.fr label{display:block;font-size:.78rem;color:var(--mid);margin-bottom:7px;font-weight:500;}
+.req{color:var(--t);font-size:.67rem;margin-left:4px;}
+.fr input[type=text],.fr input[type=tel],.fr input[type=email],.fr textarea{
+  width:100%;padding:10px 13px;border:1.5px solid var(--bdr);border-radius:6px;
+  font-family:inherit;font-size:.86rem;color:var(--tx);background:var(--tbg);
+  outline:none;transition:border .2s,background .2s;
+}
+.fr input:focus,.fr textarea:focus{border-color:var(--t);background:#fff;}
+textarea{resize:vertical;min-height:108px;}
+.cb-g{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;}
+.cb-l{display:flex;align-items:center;gap:7px;font-size:.8rem;cursor:pointer;}
+.cb-l input[type=checkbox]{accent-color:var(--t);width:14px;height:14px;}
+.rb-g{display:flex;gap:14px;flex-wrap:wrap;}
+.rb-l{display:flex;align-items:center;gap:7px;font-size:.8rem;cursor:pointer;}
+.rb-l input[type=radio]{accent-color:var(--t);}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
+.dt3{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;}
+.send-btn{
+  width:100%;background:linear-gradient(135deg,var(--td),var(--t));
+  color:#fff;border:none;border-radius:6px;padding:14px;
+  font-size:.92rem;letter-spacing:.08em;cursor:pointer;font-family:inherit;
+  transition:all .2s;box-shadow:0 4px 14px rgba(26,60,50,.22);margin-top:14px;
+}
+.send-btn:hover{background:linear-gradient(135deg,var(--dk),var(--td));transform:translateY(-2px);box-shadow:0 8px 22px rgba(26,60,50,.32);}
+.priv-l{display:flex;align-items:center;gap:8px;font-size:.8rem;margin-top:12px;cursor:pointer;}
+.priv-l a{color:var(--t);text-decoration:underline;}
+
+/* ── FOOTER ── */
+footer{background:var(--dk);color:rgba(255,255,255,.6);padding:50px 48px 26px;}
+.ft{max-width:1060px;margin:0 auto;}
+.ft-g{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+.ft-logo{font-family:'Noto Serif JP',serif;font-size:.92rem;color:#fff;font-weight:400;margin-bottom:8px;}
+.ft-logo span{display:block;font-size:.57rem;color:rgba(255,255,255,.3);font-family:'Noto Sans JP',sans-serif;font-weight:300;margin-top:2px;}
+.ft-tagline{font-size:.76rem;line-height:1.9;border-left:2px solid var(--g);padding-left:10px;margin-top:10px;}
+.ft-col h4{font-size:.66rem;letter-spacing:.14em;color:rgba(255,255,255,.3);margin-bottom:10px;}
+.ft-col ul{list-style:none;}
+.ft-col li{margin-bottom:7px;}
+.ft-col a{font-size:.77rem;color:rgba(255,255,255,.6);transition:color .2s;}
+.ft-col a:hover{color:var(--gl);}
+.ft-col p{font-size:.77rem;line-height:1.9;}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.ft-bottom p{font-size:.69rem;}
+.ft-top{background:rgba(255,255,255,.07);color:rgba(255,255,255,.5);padding:6px 16px;border-radius:4px;font-size:.69rem;transition:background .2s;}
+.ft-top:hover{background:rgba(255,255,255,.14);color:var(--gl);}
+
+@media(max-width:900px){
+  header{padding:0 20px;}
+  nav{display:none;}
+  .hero-content{grid-template-columns:1fr;padding:120px 24px 60px;}
+  .about-grid,.contact-grid,.ft-g,.rec-layout{grid-template-columns:1fr;}
+  .svc-3{grid-template-columns:1fr;}
+  .gal-grid{grid-template-columns:1fr;grid-template-rows:auto;}
+  .gi:first-child{grid-row:auto;}
+  .vc-grid{grid-template-columns:1fr;}
+  .vc{flex-direction:column;}
+  .vc-photo img{width:100%;height:200px;}
+  .p-items{grid-template-columns:repeat(2,1fr);}
+  .f2{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-wrap">
+    <div class="logo-mark">AC</div>
+    <div class="logo-name">アクティフス在宅ケア株式会社<span>Actifs Home Care Co., Ltd.</span></div>
+  </div>
+  <nav>
+    <a href="#about">私たちについて</a>
+    <a href="#facility">施設・サービス</a>
+    <a href="#staff">スタッフの声</a>
+    <a href="#recruit">採用情報</a>
+    <a href="#contact" class="nav-btn">お問い合わせ</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-img"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-content">
+    <div class="hero-main">
+      <div class="hero-pre">千葉県市原市 — 地域密着型介護</div>
+      <h1>その人らしい人生に、<br><em>最後まで寄り添う。</em></h1>
+      <p class="hero-body">アクティフス在宅ケア株式会社は、地域に根ざした介護サービスを通じて、安心と尊厳のある暮らしを支えています。私たちは、介護を「支援」ではなく、人生に寄り添う責任だと考えています。</p>
+      <div class="hero-btns">
+        <a href="#facility" class="btn-gold">施設見学はこちら</a>
+        <a href="#recruit" class="btn-outline-w">採用情報を見る</a>
+      </div>
+    </div>
+    <div>
+      <div class="hero-side-card">
+        <p class="hsc-label">提供サービス</p>
+        <div class="hsc-main">ご利用者さまの<strong>人生に誠実に</strong>向き合います。</div>
+        <div class="hsc-list">
+          <div class="hsc-item">訪問介護サービス</div>
+          <div class="hsc-item">訪問看護サービス</div>
+          <div class="hsc-item">住宅型老人ホーム</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-bg" id="about">
+  <div class="container">
+    <p class="s-label">ABOUT</p>
+    <h2 class="s-title">私たちについて</h2>
+    <div class="gold-bar"></div>
+    <div class="about-grid">
+      <div>
+        <div class="rinen-block">
+          <p class="rinen-kana">理 念</p>
+          <div class="rinen-main">人に、まっすぐ。</div>
+          <p class="rinen-body">目の前にいる一人の人生と誠実に向き合います。小さな変化にも気づき、言葉にならない想いにも耳を傾ける。まっすぐに人と向き合い、心に寄り添うケアを追求し続けます。</p>
+        </div>
+        <div class="values-list">
+          <div class="vl-item"><span class="vl-tag">誠実</span><p>いつも正直に、真摯に向き合います。</p></div>
+          <div class="vl-item"><span class="vl-tag">尊重</span><p>一人ひとりの人生と価値観を尊重します。</p></div>
+          <div class="vl-item"><span class="vl-tag">対話</span><p>言葉を交わし、理解し合うことを大切にします。</p></div>
+          <div class="vl-item"><span class="vl-tag">協働</span><p>仲間と支え合い、より良いケアを目指します。</p></div>
+          <div class="vl-item"><span class="vl-tag">成長</span><p>学び続け、より良い支援を追求します。</p></div>
+        </div>
+        <div class="ceo-msg-card" style="margin-top:20px;">
+          <p class="ceo-msg-text">介護とは、単に生活を支えることではありません。その方が歩んできた人生を尊重し、これからの日々をともに支えていくこと。<br><br>私たちは、ご利用者さまに安心を、ご家族に信頼を、そして働くスタッフに誇りを届けられる存在でありたいと考えています。</p>
+          <div class="ceo-sig"><p class="title">代表取締役</p><p class="name">進藤 愛美</p></div>
+        </div>
+      </div>
+      <div class="ceo-col">
+        <div class="ceo-photo-box">
+          <img src="https://images.unsplash.com/photo-1595023986775-e3e9ce35ca2f?auto=format&fit=crop&w=600&q=80" alt="代表取締役 進藤 愛美">
+          <div class="ceo-photo-overlay"><p class="cpo-title">代表取締役</p><p class="cpo-name">進藤 愛美</p></div>
+        </div>
+        <table class="co-table">
+          <tr><th>会社名</th><td>アクティフス在宅ケア株式会社</td></tr>
+          <tr><th>代表者</th><td>進藤 愛美</td></tr>
+          <tr><th>所在地</th><td>〒290-0221 千葉県市原市馬立1615-18</td></tr>
+          <tr><th>TEL</th><td>0436-63-5111</td></tr>
+          <tr><th>FAX</th><td>0436-63-2086</td></tr>
+          <tr><th>受付時間</th><td>8:00〜20:00（土日祝定休）</td></tr>
+          <tr><th>事業内容</th><td>訪問介護・訪問看護・住宅型老人ホーム</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE BANNER -->
+<div class="quote-banner">
+  <div class="qb-bg"></div>
+  <div class="qb-inner">
+    <div class="qb-rule"></div>
+    <div class="qb-main">人に、まっすぐ。</div>
+    <p class="qb-sub">ご利用者さま一人ひとりの人生に、誠実に向き合い続けます。</p>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="svc-bg" id="facility">
+  <div class="container">
+    <p class="s-label">SERVICES</p>
+    <h2 class="s-title">暮らしの中に、<br>安心とぬくもりを</h2>
+    <div class="gold-bar"></div>
+    <p class="s-lead">24時間体制の見守りと医療連携により、安心して暮らせる環境を整えています。日々の食事、会話、季節の行事、何気ない時間のひとつひとつを大切にしながら、その方らしい暮らしを支えています。</p>
+    <div class="svc-3">
+      <div class="svc-card">
+        <div class="svc-photo"><img src="https://images.unsplash.com/photo-1580869318757-a6c605b061ed?auto=format&fit=crop&w=700&q=80" alt="訪問介護"><span class="svc-num">01</span></div>
+        <div class="svc-body"><h3>訪問介護サービス</h3><p>身体介護から生活援助まで、一人ひとりの状態に合わせた支援を提供します。</p><span class="svc-chip">身体介護 / 生活援助</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-photo"><img src="https://images.unsplash.com/photo-1725870953863-4ad4db0acfc2?auto=format&fit=crop&w=700&q=80" alt="訪問看護"><span class="svc-num">02</span></div>
+        <div class="svc-body"><h3>訪問看護サービス</h3><p>医療との連携を通じて、安心できる在宅療養環境を支えます。</p><span class="svc-chip">医療連携 / 在宅療養</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-photo"><img src="https://images.unsplash.com/photo-1770808250138-2ce5da80b312?auto=format&fit=crop&w=700&q=80" alt="住宅型老人ホーム"><span class="svc-num">03</span></div>
+        <div class="svc-body"><h3>住宅型老人ホーム</h3><p>安心できる住まいの中で、その人らしい暮らしを支えます。生活保護の方もご相談ください。</p><span class="svc-chip">24時間見守り / 生活保護対応</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gal-bg">
+  <div class="container">
+    <p class="s-label">FACILITY GALLERY</p>
+    <h2 class="s-title">安心できる住まい</h2>
+    <div class="gold-bar"></div>
+    <div class="gal-grid">
+      <div class="gi"><img src="https://images.unsplash.com/photo-1543333995-a78aea2eee50?auto=format&fit=crop&w=800&q=80" alt="施設の様子"></div>
+      <div class="gi"><img src="https://images.unsplash.com/photo-1648415198825-7c805bfa043e?auto=format&fit=crop&w=700&q=80" alt="居室"></div>
+      <div class="gi"><img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=700&q=80" alt="ケアの様子"></div>
+    </div>
+    <div class="price-box">
+      <h3>ご利用料金（住宅型老人ホーム）</h3>
+      <p class="p-sub">月額費用の目安</p>
+      <div class="p-items">
+        <div class="pi"><div class="pil">家賃</div><div class="piv">41,000円</div></div>
+        <div class="pi"><div class="pil">光熱費</div><div class="piv">19,000円</div></div>
+        <div class="pi"><div class="pil">管理費</div><div class="piv">15,000円</div></div>
+        <div class="pi"><div class="pil">食費</div><div class="piv">36,300円</div></div>
+      </div>
+      <div class="p-total"><span class="tl">月額合計</span><span class="tv">111,300円〜</span></div>
+      <p class="p-note">※訪問診療・訪問調剤・福祉用具レンタル代・介護保険自己負担分は別途必要です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- STAFF -->
+<section class="staff-bg" id="staff">
+  <div class="container">
+    <p class="s-label">STAFF VOICE</p>
+    <h2 class="s-title">支え合える環境が<br>あります。</h2>
+    <div class="gold-bar"></div>
+    <div class="vc-grid">
+      <div class="vc">
+        <div class="vc-photo"><img src="https://images.unsplash.com/photo-1658314755707-1fbdf7c40145?auto=format&fit=crop&w=400&q=80" alt="介護スタッフ"></div>
+        <div class="vc-body"><span class="vc-role">介護スタッフ</span><p>入社前は、自分に務まるか不安もありました。<br><br>でもACTIFSには、困った時にすぐ相談できる先輩がいます。一人で抱え込まず、みんなで支え合える環境があるからこそ、安心して成長できています。</p></div>
+      </div>
+      <div class="vc">
+        <div class="vc-photo"><img src="https://images.unsplash.com/photo-1589061434060-a05a5335bfbb?auto=format&fit=crop&w=400&q=80" alt="看護スタッフ"></div>
+        <div class="vc-body"><span class="vc-role" style="background:var(--gp);color:var(--g);">看護スタッフ</span><p>ご利用者さまとじっくり向き合えることが、この職場の魅力です。<br><br>ただ業務をこなすのではなく、その方にとって何が最善かをチームで考えられる環境があります。</p></div>
+      </div>
+    </div>
+    <div class="common-box"><p>ACTIFSには、役職や職種を超えて支え合う文化があります。誰かが困っていれば自然に声をかける。<br><br>その当たり前の積み重ねが、<strong>安心できるケアにつながっています。</strong></p></div>
+  </div>
+</section>
+
+<!-- RECRUIT -->
+<section class="rec-bg" id="recruit">
+  <div class="container">
+    <div class="rec-banner">
+      <div class="rec-bg-img"></div>
+      <div class="rec-banner-inner">
+        <h2>介護を、もっと誇れる仕事へ。</h2>
+        <p>ACTIFSが求めるのは、経験の有無ではありません。人に寄り添いたいという想いと、誠実に向き合う姿勢。</p>
+      </div>
+    </div>
+    <div class="rec-layout">
+      <div>
+        <div class="jstack">
+          <div class="jcard"><div class="jcard-h t1"><h3>介護職（正社員）</h3><div class="pay">月給 300,000円〜</div></div><div class="jcard-b">勤務：9:00〜18:00（週5）/ 8:00〜20:00（週4）<br>休日：シフト制・有給・希望休相談可</div></div>
+          <div class="jcard"><div class="jcard-h t2"><h3>パートスタッフ</h3><div class="pay">時給 1,300円〜</div></div><div class="jcard-b">週1日〜・短時間勤務可能</div></div>
+          <div class="jcard"><div class="jcard-h t3"><h3>調理・清掃サポート</h3><div class="pay">無資格可</div></div><div class="jcard-b">短時間勤務歓迎</div></div>
+        </div>
+        <div class="w-card"><h4>福利厚生</h4><div class="w-tags"><span class="w-tag">社会保険完備</span><span class="w-tag">資格取得支援（会社負担）</span><span class="w-tag">交通費支給</span><span class="w-tag">制服貸与</span><span class="w-tag">研修制度</span><span class="w-tag">キャリアアップ支援</span></div></div>
+      </div>
+      <div>
+        <div class="merit-panel">
+          <h3>ACTIFSで働く魅力</h3>
+          <div class="merit-item"><div class="merit-num">1</div><div><h4>未経験から成長できる</h4><p>会社負担で資格取得を支援。スキルアップを全力サポートします。</p></div></div>
+          <div class="merit-item"><div class="merit-num">2</div><div><h4>支え合える職場環境</h4><p>困った時はすぐ相談できる。一人で抱え込まないチームです。</p></div></div>
+          <div class="merit-item"><div class="merit-num">3</div><div><h4>夜勤なしで働きやすい</h4><p>夜勤がなく、生活リズムを整えながら働けます。</p></div></div>
+          <div class="persona-box">
+            <h4>求める人物像</h4>
+            <div class="p-tags"><span class="p-tag">誠実に向き合える方</span><span class="p-tag">思いやりを持てる方</span><span class="p-tag">学ぶ姿勢を持てる方</span><span class="p-tag">仲間を大切にできる方</span></div>
+            <p class="persona-msg">まずは見学だけでも歓迎しています。職場の空気を感じ、ACTIFSらしさを知ってください。</p>
+            <div class="cta-row"><a href="#contact" class="btn-gold" style="font-size:.8rem;padding:9px 20px;">職場見学を予約</a><a href="#contact" class="btn-outline-w" style="font-size:.8rem;padding:9px 20px;">エントリーする</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-bg" id="contact">
+  <div class="container">
+    <p class="s-label">CONTACT</p>
+    <h2 class="s-title">お問い合わせ</h2>
+    <div class="gold-bar"></div>
+    <p class="s-lead">施設のご利用に関するご相談から、採用に関するご質問まで、どうぞお気軽にお問い合わせください。</p>
+    <div class="contact-grid">
+      <div><div class="ci-card"><h3>お電話でのお問い合わせ</h3><div class="ci-tel">0436-63-5111</div><p class="ci-note">受付時間：8:00〜20:00<br>定休日：土日祝</p><hr class="ci-sep"><p class="ci-msg">どんな小さなご相談でも、誠実に対応いたします。</p></div></div>
+      <div class="form-card">
+        <form action="#" method="post">
+          <div class="fr"><label>お問い合わせ種別<span class="req">必須</span></label><div class="cb-g"><label class="cb-l"><input type="checkbox"> 施設見学予約</label><label class="cb-l"><input type="checkbox"> 入居相談</label><label class="cb-l"><input type="checkbox"> 空室確認</label><label class="cb-l"><input type="checkbox"> サービス内容について</label><label class="cb-l"><input type="checkbox"> 医療連携について</label><label class="cb-l"><input type="checkbox"> 採用について</label><label class="cb-l"><input type="checkbox"> 職場見学予約</label><label class="cb-l"><input type="checkbox"> 地域連携について</label><label class="cb-l"><input type="checkbox"> その他</label></div></div>
+          <div class="f2"><div class="fr"><label>お名前<span class="req">必須</span></label><input type="text" placeholder="山田 花子"></div><div class="fr"><label>ふりがな</label><input type="text" placeholder="やまだ はなこ"></div></div>
+          <div class="fr"><label>ご本人区分<span class="req">必須</span></label><div class="rb-g"><label class="rb-l"><input type="radio" name="p"> ご本人</label><label class="rb-l"><input type="radio" name="p"> ご家族</label><label class="rb-l"><input type="radio" name="p"> 医療機関ご担当者</label><label class="rb-l"><input type="radio" name="p"> ケアマネジャー</label><label class="rb-l"><input type="radio" name="p"> 行政関係者</label><label class="rb-l"><input type="radio" name="p"> 求職者</label><label class="rb-l"><input type="radio" name="p"> その他</label></div></div>
+          <div class="f2"><div class="fr"><label>電話番号<span class="req">必須</span></label><input type="tel" placeholder="0436-63-5111"></div><div class="fr"><label>メールアドレス<span class="req">必須</span></label><input type="email" placeholder="info@example.com"></div></div>
+          <div class="fr"><label>ご住所（任意）</label><input type="text" placeholder="千葉県市原市○○"></div>
+          <div class="fr"><label>ご希望の連絡方法</label><div class="rb-g"><label class="rb-l"><input type="radio" name="pref"> お電話</label><label class="rb-l"><input type="radio" name="pref"> メール</label><label class="rb-l"><input type="radio" name="pref"> どちらでも可</label></div></div>
+          <div class="fr"><label>ご希望の連絡時間帯</label><div class="rb-g"><label class="rb-l"><input type="radio" name="t"> 午前（9:00〜12:00）</label><label class="rb-l"><input type="radio" name="t"> 午後（12:00〜17:00）</label><label class="rb-l"><input type="radio" name="t"> 夕方（17:00〜20:00）</label><label class="rb-l"><input type="radio" name="t"> 指定なし</label></div></div>
+          <div class="fr"><label>ご希望の見学日時（任意）</label><div class="dt3"><input type="text" placeholder="第1希望"><input type="text" placeholder="第2希望"><input type="text" placeholder="第3希望"></div></div>
+          <div class="fr"><label>ご相談内容<span class="req">必須</span></label><textarea placeholder="ご質問・ご相談内容をご記入ください。"></textarea></div>
+          <label class="priv-l"><input type="checkbox" required><span><a href="#">個人情報保護方針</a>に同意する</span></label>
+          <button type="submit" class="send-btn">お問い合わせを送信する</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft">
+    <div class="ft-g">
+      <div><div class="ft-logo">アクティフス在宅ケア株式会社<span>Actifs Home Care Co., Ltd.</span></div><p class="ft-tagline">地域に根ざした介護サービスを通じて、<br>安心と尊厳のある暮らしを支えています。</p></div>
+      <div class="ft-col"><h4>MENU</h4><ul><li><a href="#about">私たちについて</a></li><li><a href="#facility">施設・サービス</a></li><li><a href="#staff">スタッフの声</a></li><li><a href="#recruit">採用情報</a></li><li><a href="#contact">お問い合わせ</a></li></ul></div>
+      <div class="ft-col"><h4>COMPANY INFO</h4><p>〒290-0221<br>千葉県市原市馬立1615-18<br>TEL：0436-63-5111<br>FAX：0436-63-2086<br>受付：8:00〜20:00（土日祝定休）</p></div>
+    </div>
+    <div class="ft-bottom"><p>&copy; 2024 アクティフス在宅ケア株式会社. All Rights Reserved.</p><a href="#top" class="ft-top">↑ TOPへ</a></div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>案C 和モダン昭和｜ケアステーション市原</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Yuji+Syuku&family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F3EDE0; --paper-d:#E9E0CC; --indigo:#26344F; --indigo-d:#1A2436; --indigo-l:#3C4E6E;
+  --gold:#B8923F; --gold-l:#D4B968; --rust:#B5562F; --pink:#C5868F; --pink-d:#A86A73; --sumi:#26221E;
+  --disp:'Zen Old Mincho',serif; --b1:'Shippori Mincho B1',serif; --mei:'Yuji Syuku',serif; --body:'Zen Maru Gothic',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--body);background:var(--paper);color:var(--sumi);line-height:1.95;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;object-fit:cover;}
+.wrap{max-width:1140px;margin:0 auto;padding:0 38px;position:relative;z-index:2;}
+.pad{padding:116px 0;}
+section{position:relative;}
+/* seigaiha wave divider */
+.seigaiha{height:26px;background:
+  radial-gradient(circle at 50% 100%, transparent 11px, var(--gold) 11px 12px, transparent 12px) 0 0/30px 26px repeat-x,
+  radial-gradient(circle at 50% 100%, transparent 5px, var(--gold) 5px 6px, transparent 6px) 0 0/30px 26px repeat-x;
+  opacity:.5;}
+
+/* ── HEADER ── */
+header{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 36px;background:rgba(243,237,224,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--gold);}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo .seal{width:44px;height:44px;background:var(--indigo);color:var(--gold-l);display:flex;align-items:center;justify-content:center;
+  font-family:var(--mei);font-size:1.1rem;border:1px solid var(--gold);}
+.logo .t{font-family:var(--disp);font-weight:700;font-size:1.02rem;color:var(--indigo);letter-spacing:.06em;}
+.logo .t span{display:block;font-family:var(--body);font-weight:400;font-size:.56rem;letter-spacing:.26em;color:var(--gold);margin-top:2px;}
+nav{display:flex;gap:26px;align-items:center;}
+nav a{font-family:var(--b1);font-weight:700;font-size:.84rem;color:var(--indigo);position:relative;letter-spacing:.04em;}
+nav a::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:1.5px;background:var(--rust);transform:scaleX(0);transition:transform .25s;transform-origin:left;}
+nav a:hover::after{transform:scaleX(1);}
+
+/* ── HERO ── */
+.hero{padding:104px 0 0;background:var(--indigo);color:var(--paper);overflow:hidden;position:relative;}
+.hero::before{content:'';position:absolute;inset:0;opacity:.16;
+  background:
+   radial-gradient(circle at 50% 100%, transparent 15px, var(--gold-l) 15px 16px, transparent 16px) 0 0/44px 38px repeat,
+   radial-gradient(circle at 50% 100%, transparent 7px, var(--gold-l) 7px 8px, transparent 8px) 0 0/44px 38px repeat;}
+.hero .wrap{display:grid;grid-template-columns:1.06fr .94fr;gap:46px;align-items:center;padding-top:54px;padding-bottom:80px;}
+.vtag{position:absolute;top:120px;right:40px;writing-mode:vertical-rl;font-family:var(--mei);font-size:.92rem;letter-spacing:.3em;color:var(--gold-l);z-index:3;}
+.hero h1{font-family:var(--disp);font-weight:900;font-size:clamp(2.5rem,5vw,4rem);line-height:1.5;letter-spacing:.04em;margin-bottom:22px;}
+.hero h1 .g{color:var(--gold-l);}
+.hero h1 .p{color:var(--pink);}
+.hero-sub{font-family:var(--b1);font-size:1.02rem;line-height:2.2;color:var(--paper-d);margin-bottom:34px;max-width:430px;}
+.hero-btns{display:flex;gap:15px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;font-family:var(--b1);font-weight:700;font-size:.95rem;padding:14px 32px;transition:all .2s;cursor:pointer;letter-spacing:.04em;}
+.btn-g{background:var(--gold);color:var(--indigo-d);border:1px solid var(--gold);}
+.btn-g:hover{background:var(--gold-l);transform:translateY(-3px);}
+.btn-o{background:transparent;color:var(--paper);border:1px solid var(--paper-d);}
+.btn-o:hover{background:var(--paper);color:var(--indigo);transform:translateY(-3px);}
+/* rotating circular crest */
+.hero-art{display:flex;align-items:center;justify-content:center;height:480px;perspective:1100px;}
+.crest{position:relative;width:370px;height:370px;transform-style:preserve-3d;will-change:transform;}
+.crest .frame{position:absolute;inset:0;border-radius:50%;border:2px solid var(--gold);}
+.crest .frame.in{inset:14px;border-color:var(--gold-l);border-style:double;border-width:4px;}
+.crest .photo{position:absolute;inset:30px;border-radius:50%;overflow:hidden;box-shadow:0 16px 44px rgba(0,0,0,.45);}
+.crest .photo img{width:100%;height:100%;}
+.crest .mon{position:absolute;width:96px;height:96px;top:-12px;left:50%;transform:translateX(-50%);background:var(--rust);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:var(--paper);font-family:var(--mei);font-size:.92rem;text-align:center;line-height:1.4;border:2px solid var(--gold-l);z-index:4;}
+.spin-note{position:absolute;bottom:-34px;left:50%;transform:translateX(-50%);font-family:var(--body);font-size:.72rem;letter-spacing:.14em;color:var(--gold-l);white-space:nowrap;}
+
+/* ── section head ── */
+.sec-head{text-align:center;margin-bottom:56px;}
+.sec-kana{font-family:var(--mei);font-size:.82rem;letter-spacing:.4em;color:var(--rust);margin-bottom:12px;}
+.sec-title{font-family:var(--disp);font-weight:900;font-size:clamp(1.9rem,3.6vw,2.7rem);color:var(--indigo);letter-spacing:.06em;}
+.sec-line{width:54px;height:2px;background:var(--gold);margin:18px auto 0;}
+
+/* fly-in */
+[data-fly]{opacity:0;transition:transform 1s cubic-bezier(.16,.84,.34,1),opacity 1s;will-change:transform,opacity;}
+[data-fly="left"]{transform:translateX(-130px);}
+[data-fly="right"]{transform:translateX(130px);}
+[data-fly="up"]{transform:translateY(64px);}
+[data-fly].in{opacity:1;transform:none;}
+
+/* ── GREETING ── */
+.greet{background:var(--paper-d);}
+.greet .wrap{display:grid;grid-template-columns:.82fr 1.18fr;gap:54px;align-items:center;}
+.greet-photo{position:relative;}
+.greet-photo .f{overflow:hidden;aspect-ratio:4/5;border:1px solid var(--gold);box-shadow:18px 18px 0 rgba(184,146,63,.25);}
+.greet-photo .f img{width:100%;height:100%;object-position:top;}
+.greet-photo .vn{position:absolute;top:-10px;left:-22px;writing-mode:vertical-rl;background:var(--indigo);color:var(--paper);font-family:var(--mei);
+  padding:16px 12px;letter-spacing:.18em;font-size:1rem;border:1px solid var(--gold);}
+.greet-body .lead{font-family:var(--disp);font-weight:900;font-size:clamp(1.5rem,2.8vw,2.15rem);color:var(--rust);line-height:1.75;margin-bottom:22px;letter-spacing:.03em;}
+.greet-body p{font-family:var(--b1);font-size:1rem;line-height:2.3;margin-bottom:16px;color:var(--sumi);}
+.greet-body .sign{font-family:var(--mei);font-size:1.05rem;color:var(--indigo);margin-top:20px;}
+
+/* ── SERVICES ── */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+.svc{background:var(--paper);border:1px solid var(--gold);overflow:hidden;transition:transform .25s,box-shadow .25s;}
+.svc:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(38,52,79,.16);}
+.svc .ph{height:200px;overflow:hidden;position:relative;}
+.svc .ph img{width:100%;height:100%;transition:transform .6s;}
+.svc:hover .ph img{transform:scale(1.06);}
+.svc .no{position:absolute;top:14px;left:14px;width:44px;height:44px;border-radius:50%;background:var(--indigo);color:var(--gold-l);
+  font-family:var(--mei);font-size:1.05rem;display:flex;align-items:center;justify-content:center;border:1px solid var(--gold-l);}
+.svc .b{padding:24px 24px 28px;}
+.svc .b h3{font-family:var(--disp);font-weight:700;font-size:1.24rem;color:var(--indigo);margin-bottom:10px;letter-spacing:.04em;}
+.svc .b p{font-family:var(--b1);font-size:.86rem;line-height:2;color:var(--sumi);}
+
+/* ── FACILITY rotating ── */
+.fac{background:var(--indigo);color:var(--paper);}
+.fac .sec-title{color:var(--paper);}
+.fac .sec-kana{color:var(--gold-l);}
+.fac-track{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;perspective:1200px;}
+.fcard{width:238px;will-change:transform;}
+.fcard .pic{height:172px;overflow:hidden;border:1px solid var(--gold);box-shadow:0 14px 32px rgba(0,0,0,.4);}
+.fcard .pic img{width:100%;height:100%;}
+.fcard .nm{font-family:var(--disp);font-weight:700;font-size:1rem;text-align:center;margin-top:16px;color:var(--paper);letter-spacing:.04em;}
+.fcard .nm span{display:block;font-family:var(--body);font-size:.66rem;color:var(--gold-l);letter-spacing:.16em;margin-top:3px;}
+.fac-note{text-align:center;margin-top:42px;font-family:var(--mei);font-size:.9rem;color:var(--gold-l);letter-spacing:.2em;}
+
+/* ── VOICES ── */
+.voices{display:flex;flex-direction:column;gap:34px;max-width:900px;margin:0 auto;}
+.voice{display:flex;gap:28px;align-items:center;background:var(--paper);border:1px solid var(--gold);padding:26px;box-shadow:10px 10px 0 rgba(184,146,63,.18);}
+.voice:nth-child(even){flex-direction:row-reverse;box-shadow:-10px 10px 0 rgba(181,86,47,.16);}
+.voice .vp{width:130px;height:152px;flex-shrink:0;overflow:hidden;border:1px solid var(--gold);}
+.voice .vp img{width:100%;height:100%;object-position:top;}
+.voice .role{display:inline-block;font-family:var(--mei);font-size:.78rem;color:var(--paper);background:var(--indigo);padding:3px 14px;margin-bottom:11px;letter-spacing:.1em;}
+.voice .role.r{background:var(--rust);}
+.voice .role.g{background:var(--gold);color:var(--indigo-d);}
+.voice .role.p{background:var(--pink-d);}
+.voice .q{font-family:var(--disp);font-weight:900;font-size:1.14rem;color:var(--rust);margin-bottom:9px;line-height:1.6;letter-spacing:.03em;}
+.voice .vb p{font-family:var(--b1);font-size:.86rem;line-height:2;}
+.voice .vn{font-family:var(--mei);font-size:.82rem;color:var(--indigo);margin-top:9px;}
+
+/* ── RECRUIT ── */
+.recruit{background:var(--paper-d);text-align:center;}
+.recruit .card{background:var(--indigo);color:var(--paper);max-width:780px;margin:0 auto;padding:56px 50px;position:relative;border:1px solid var(--gold);}
+.recruit .card::before,.recruit .card::after{content:'';position:absolute;width:26px;height:26px;border:2px solid var(--gold-l);}
+.recruit .card::before{top:12px;left:12px;border-right:none;border-bottom:none;}
+.recruit .card::after{bottom:12px;right:12px;border-left:none;border-top:none;}
+.recruit .badge{font-family:var(--mei);font-size:.9rem;color:var(--gold-l);letter-spacing:.24em;margin-bottom:18px;}
+.recruit h2{font-family:var(--disp);font-weight:900;font-size:clamp(1.8rem,3.6vw,2.6rem);line-height:1.55;margin-bottom:8px;letter-spacing:.04em;}
+.recruit h2 .g{color:var(--gold-l);}
+.recruit .yen{font-family:var(--disp);font-weight:900;font-size:clamp(2.6rem,6vw,4rem);color:var(--gold-l);line-height:1.15;margin:14px 0;}
+.recruit .yen small{font-size:.36em;color:var(--paper);}
+.recruit p{font-family:var(--b1);color:var(--paper-d);font-size:.96rem;margin-bottom:28px;line-height:2;}
+
+/* ── FOOTER ── */
+footer{background:var(--indigo-d);color:var(--paper-d);padding:52px 38px 26px;border-top:1px solid var(--gold);}
+.ft{max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;align-items:flex-end;}
+.ft .t{font-family:var(--disp);font-weight:700;font-size:1.1rem;color:var(--paper);letter-spacing:.04em;}
+.ft .t span{display:block;font-family:var(--body);font-size:.6rem;letter-spacing:.2em;color:var(--gold-l);margin-top:5px;}
+.ft p{font-family:var(--b1);font-size:.8rem;line-height:2;}
+.ft .cr{width:100%;border-top:1px solid rgba(243,237,224,.15);padding-top:16px;margin-top:8px;font-size:.72rem;color:var(--gold-l);letter-spacing:.06em;}
+
+@media(max-width:920px){
+  nav{display:none;}
+  .vtag{display:none;}
+  .hero .wrap,.greet .wrap{grid-template-columns:1fr;gap:48px;}
+  .hero-art{order:-1;height:360px;}
+  .crest{width:290px;height:290px;}
+  .svc-grid{grid-template-columns:1fr;}
+  .voice,.voice:nth-child(even){flex-direction:column;text-align:center;}
+  .voice .vp{width:160px;height:184px;}
+}
+@media(prefers-reduced-motion:reduce){
+  [data-fly]{opacity:1!important;transform:none!important;}
+  .crest,.fcard{transform:none!important;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="seal">寿</div>
+    <div class="t">ケアステーション市原<span>ACTIFS HOME CARE</span></div>
+  </div>
+  <nav>
+    <a href="#greet">ごあいさつ</a>
+    <a href="#svc">事業案内</a>
+    <a href="#fac">施設案内</a>
+    <a href="#voice">職員の声</a>
+    <a href="#recruit">求人</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" data-screen-label="ヒーロー">
+  <div class="vtag">昭和の心、令和の在宅へ</div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1>その人らしさに、<br><span class="g">真心</span>を尽くす。<br><span class="p">在宅介護</span>。</h1>
+      <p class="hero-sub">訪問介護・訪問看護・住宅型老人ホーム。古き良きまごころと、確かな医療連携で、毎日に寄り添います。</p>
+      <div class="hero-btns">
+        <a href="#svc" class="btn btn-g">事業のご案内 →</a>
+        <a href="#recruit" class="btn btn-o">求人を見る →</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="crest" data-rotate="150" id="heroCrest">
+        <div class="frame"></div>
+        <div class="frame in"></div>
+        <div class="photo"><img src="https://images.unsplash.com/photo-1543333995-a78aea2eee50?auto=format&fit=crop&w=700&q=80" alt="寄り添う介護"></div>
+        <div class="mon">真心<br>ケア</div>
+        <span class="spin-note">▼ スクロールで巡ります</span>
+      </div>
+    </div>
+  </div>
+  <div class="seigaiha"></div>
+</section>
+
+<!-- GREETING -->
+<section class="greet pad" id="greet" data-screen-label="代表挨拶">
+  <div class="wrap">
+    <div class="greet-photo" data-fly="left">
+      <div class="f"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="代表 進藤 愛美"></div>
+      <div class="vn">代表取締役　進藤 愛美</div>
+    </div>
+    <div class="greet-body" data-fly="right">
+      <div class="lead">「ご飯を作ってあげられる」<br>その近さこそ、私たちの矜持。</div>
+      <p>効率だけを求める介護ではなく、利用者様の人生やご家族の安心にも向き合う。“利用者様にできる限りのことをする” を、何より大切にしてまいりました。</p>
+      <p>身寄りのない方も、生活保護の方も。地域で暮らし続けたいという願いに、まっすぐ応えます。働くスタッフも、長く無理なく、生活が良くなるように。</p>
+      <div class="sign">ケアステーション市原　代表　進藤 愛美</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="pad" id="svc" data-screen-label="事業案内">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kana">じぎょうのごあんない</div>
+      <h2 class="sec-title">三つの真心事業</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="svc-grid">
+      <div class="svc" data-fly="up">
+        <div class="ph"><span class="no">壱</span><img src="https://images.unsplash.com/photo-1580869318757-a6c605b061ed?auto=format&fit=crop&w=700&q=80" alt="訪問介護"></div>
+        <div class="b"><h3>訪問介護</h3><p>身体介護から生活援助まで。入浴・食事・調理・買い物代行まで、暮らしを丁寧に支えます。</p></div>
+      </div>
+      <div class="svc" data-fly="up" style="transition-delay:.12s">
+        <div class="ph"><span class="no">弐</span><img src="https://images.unsplash.com/photo-1725870953863-4ad4db0acfc2?auto=format&fit=crop&w=700&q=80" alt="訪問看護"></div>
+        <div class="b"><h3>訪問看護</h3><p>医師の指示に基づく医療的処置にも対応。健康管理から在宅療養まで、安心を届けます。</p></div>
+      </div>
+      <div class="svc" data-fly="up" style="transition-delay:.24s">
+        <div class="ph"><span class="no">参</span><img src="https://images.unsplash.com/photo-1770808250138-2ce5da80b312?auto=format&fit=crop&w=700&q=80" alt="住宅型老人ホーム"></div>
+        <div class="b"><h3>住宅型老人ホーム</h3><p>わが家のような住まいで、その人らしい暮らしを。生活保護の方もお気軽にご相談ください。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITY -->
+<section class="fac pad" id="fac" data-screen-label="施設案内">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kana">しせつのごあんない</div>
+      <h2 class="sec-title">あっとほーむ 三号</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="fac-track">
+      <div class="fcard" data-rotate="38"><div class="pic"><img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=500&q=80" alt="牛久"></div><div class="nm">あっとほーむ牛久<span>市原市</span></div></div>
+      <div class="fcard" data-rotate="-38"><div class="pic"><img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=500&q=80" alt="光風台"></div><div class="nm">あっとほーむ光風台<span>市原市</span></div></div>
+      <div class="fcard" data-rotate="38"><div class="pic"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=500&q=80" alt="今井"></div><div class="nm">あっとほーむ今井<span>市原市</span></div></div>
+      <div class="fcard" data-rotate="-38"><div class="pic"><img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=500&q=80" alt="椎の木台"></div><div class="nm">あっとほーむ椎の木台<span>市原市</span></div></div>
+      <div class="fcard" data-rotate="38"><div class="pic"><img src="https://images.unsplash.com/photo-1416331108676-a22ccb276e35?auto=format&fit=crop&w=500&q=80" alt="馬立"></div><div class="nm">あっとほーむ馬立<span>市原市</span></div></div>
+      <div class="fcard" data-rotate="-38"><div class="pic"><img src="https://images.unsplash.com/photo-1576941089067-2de3c901e126?auto=format&fit=crop&w=500&q=80" alt="馬立2号館"></div><div class="nm">あっとほーむ馬立2号館<span>市原市</span></div></div>
+      <div class="fcard" data-rotate="38"><div class="pic"><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=500&q=80" alt="畑沢"></div><div class="nm">あっとほーむ畑沢<span>市原市</span></div></div>
+    </div>
+    <p class="fac-note">― スクロールに合わせて、巡るように回ります ―</p>
+  </div>
+</section>
+
+<!-- VOICES -->
+<section class="pad" id="voice" data-screen-label="職員の声">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kana">しょくいんのこえ</div>
+      <h2 class="sec-title">職員の声</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="voices">
+      <div class="voice" data-fly="left">
+        <div class="vp"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80" alt="Aさん"></div>
+        <div class="vb"><span class="role">管理者</span><div class="q">「今度いつ来る？」の一言に、報われる。</div><p>してあげられることに縛りが少なく、支援の幅が広がりました。娘のように頼ってくださる信頼関係がうれしい。年齢関係なく、熱い思いの人が集う明るい職場です。</p><div class="vn">― Aさん</div></div>
+      </div>
+      <div class="voice" data-fly="right">
+        <div class="vp"><img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=400&q=80" alt="Bさん"></div>
+        <div class="vb"><span class="role r">介護士</span><div class="q">「また明日ね」と言われたとき。</div><p>利用者様とスタッフの距離が近く、毎日にぎやか。一人ひとり必要なケアは違いますが、ご自宅のように安心して過ごされる姿が励みになります。</p><div class="vn">― Bさん</div></div>
+      </div>
+      <div class="voice" data-fly="left">
+        <div class="vp"><img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=400&q=80" alt="Cさん"></div>
+        <div class="vb"><span class="role p">介護士</span><div class="q">こちらこそ、ありがとう。</div><p>結婚・出産で離れていましたが、友人の紹介で復帰。お父さん・お母さんのように寄り添う関わりです。未経験の介助も先輩と2人で協力して行えます。</p><div class="vn">― Cさん</div></div>
+      </div>
+      <div class="voice" data-fly="right">
+        <div class="vp"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=400&q=80" alt="Dさん"></div>
+        <div class="vb"><span class="role g">事務員</span><div class="q">自信を持って、おすすめできる。</div><p>前職はホテルマン。人に寄り添う心を活かせる仕事です。安心して最期まで過ごせる環境が整い、スタッフ同士も明るく、相談しやすいチームワークが魅力です。</p><div class="vn">― Dさん</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECRUIT -->
+<section class="recruit pad" id="recruit" data-screen-label="求人">
+  <div class="wrap">
+    <div class="card" data-fly="up">
+      <div class="badge">― 求人募集中 ―</div>
+      <h2>転職、<span class="g">最後</span>にしませんか。</h2>
+      <div class="yen">月給30万円<small>〜</small></div>
+      <p>夜勤なし・シフト制／住宅型老人ホームへの訪問介護。移動は最低限。<br>未経験・無資格も歓迎、資格取得は弊社負担でしっかりサポートします。</p>
+      <a href="#" class="btn btn-g">エントリーする →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft">
+    <div>
+      <div class="t">ケアステーション市原<span>アクティフス在宅ケア株式会社</span></div>
+      <p style="margin-top:12px">〒290-0221 千葉県市原市馬立1615-18<br>TEL 0436-63-5111／受付 8:00〜20:00（土日祝定休）</p>
+    </div>
+    <p>訪問介護・訪問看護・住宅型老人ホーム<br>古き良きまごころの、在宅ケア。</p>
+    <div class="cr">&copy; 2026 アクティフス在宅ケア株式会社 ケアステーション市原.｜昭和レトロ デザイン案C</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var flys = document.querySelectorAll('[data-fly]');
+  if(reduce){ flys.forEach(function(el){el.classList.add('in');}); }
+  else {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:.2});
+    flys.forEach(function(el){io.observe(el);});
+  }
+  var rots = [].slice.call(document.querySelectorAll('[data-rotate]'));
+  function tick(){
+    var vh = window.innerHeight;
+    rots.forEach(function(el){
+      var r = el.getBoundingClientRect();
+      var prog = (vh - r.top) / (vh + r.height);
+      prog = Math.max(0, Math.min(1, prog));
+      var amp = parseFloat(el.dataset.rotate) || 60;
+      var deg = (prog - 0.5) * 2 * amp;
+      el.style.transform = 'perspective(1100px) rotateY(' + deg.toFixed(1) + 'deg)';
+    });
+  }
+  if(!reduce){
+    var ticking=false;
+    window.addEventListener('scroll',function(){ if(!ticking){requestAnimationFrame(function(){tick();ticking=false;});ticking=true;} },{passive:true});
+    window.addEventListener('resize',tick);
+    tick();
+  }
+})();
+</script>
+</body>
+</html>
