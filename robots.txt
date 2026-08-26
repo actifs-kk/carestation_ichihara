@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://actifs.jp/sitemap.xml
